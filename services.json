@@ -1,0 +1,5 @@
+[
+  {"name": "Docker", "units": ["docker.service"], "process_names": ["dockerd"], "executables": ["dockerd", "docker"]},
+  {"name": "llama-server", "units": ["llama-server.service", "llama.service"], "process_names": ["llama-server"], "executables": ["llama-server"]},
+  {"name": "Hermes", "units": ["hermes.service", "hermes-agent.service", "hermes-gateway.service"], "process_names": ["hermes", "hermes-agent"], "executables": ["hermes"]}
+]

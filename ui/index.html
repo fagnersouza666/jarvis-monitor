@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>J.A.R.V.I.S. · Monitor local</title>
+  <link rel="stylesheet" href="./style.css">
+  <script type="module" src="./app.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Ir para o conteúdo</a>
+  <aside class="sidebar">
+    <a class="emblem" href="#/" aria-label="J.A.R.V.I.S. início"><span>J</span></a>
+    <p class="side-caption">CENTRAL LOCAL</p>
+    <nav aria-label="Navegação principal">
+      <a href="#/" data-page="overview"><span aria-hidden="true">▦</span> Painel <b>01</b></a>
+      <a href="#/hardware" data-page="hardware"><span aria-hidden="true">◈</span> Hardware <b>02</b></a>
+    </nav>
+    <div class="side-bottom"><span class="lock" aria-hidden="true">◇</span><strong>SOMENTE LEITURA</strong><p>Telemetria desta máquina<br>IPC interno · sem servidor</p><div class="side-line"></div><span class="version">MONITOR / V1.0</span></div>
+  </aside>
+  <div class="workspace">
+    <header>
+      <div class="brand">J.A.R.V.I.S.<span>PERSONAL SYSTEM MONITOR</span></div>
+      <div id="connection" class="connection" role="status"><i></i><span>INICIANDO COLETA</span></div>
+      <div class="header-time"><time id="header-clock">--:--:--</time><small id="uptime">Aguardando uptime</small></div>
+    </header>
+    <main id="main">
+      <div class="page-heading"><div><div class="eyebrow">TELEMETRIA / <span id="page-number">01</span></div><h1 id="page-title">Visão geral</h1><p id="page-subtitle">Uma visão em tempo real do seu Pop!_OS.</p></div><div class="settings"><span id="cadence">Coleta: —</span><label><input type="checkbox" id="motion"> Reduzir animações</label></div></div>
+      <div id="error-banner" class="error-banner" role="status" hidden></div>
+      <section id="overview" aria-label="Resumo do sistema">
+        <div class="overview-grid">
+          <div class="column">
+            <article class="panel processing"><div class="panel-heading"><h2>Processamento</h2><span>CPU + RAM</span></div><div class="gauges" id="overview-cpu"></div><p class="model" id="cpu-model">Identificando processador…</p><div class="panel-meta" id="cpu-meta">Aguardando primeira amostra</div></article>
+            <article class="panel services"><div class="panel-heading"><h2>Serviços observados</h2><span id="services-count">—</span></div><div id="services-list" class="service-list"><p class="muted">Consultando estados reais…</p></div><p class="footnote" id="services-note">Estado de execução; não testa saúde da aplicação.</p></article>
+          </div>
+          <article class="clock-panel" aria-label="Relógio local">
+            <div class="clock-caption"><span class="tiny-dot"></span> RELÓGIO DO COMPUTADOR</div>
+            <div class="reactor"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="clock-core"><span>HORA LOCAL</span><time id="main-clock">--:--</time><span id="clock-seconds">-- SEGUNDOS</span></div></div>
+            <p id="main-date" class="main-date">—</p><div class="observing">MONITORAMENTO ATIVO</div><div class="clock-foot">MÉTRICAS REAIS <span>·</span> SEM AÇÕES NO SISTEMA</div>
+          </article>
+          <div class="column">
+            <article class="panel gpu-panel"><div class="panel-heading"><h2>Placa de vídeo</h2><span>NVIDIA</span></div><div class="gauges" id="overview-gpu"></div><p class="model" id="gpu-model">Consultando GPU…</p><div class="panel-meta" id="gpu-meta">Aguardando primeira amostra</div></article>
+            <article class="panel diagnostics"><div class="panel-heading"><h2>Leitura do sistema</h2><span>LIMITES</span></div><div id="diagnostic-summary"></div><details><summary>Critérios e limitações</summary><p id="diagnostic-rules">Aguardando coleta</p></details></article>
+          </div>
+        </div>
+        <div class="overview-bottom"><div><span>VOLUME PRINCIPAL</span><strong id="quick-disk">—</strong></div><div><span>MAIOR TEMPERATURA LIDA</span><strong id="quick-temp">—</strong></div><div><span>PROCESSOS OBSERVADOS</span><strong id="quick-process">—</strong></div><div><span>TEMPO DE COLETA</span><strong id="quick-cost">—</strong></div></div>
+      </section>
+      <section id="hardware" aria-label="Detalhes do hardware" hidden>
+        <div class="hardware-grid">
+          <article class="panel hardware-cpu"><div class="panel-heading"><h2>Processador</h2><span>CPU</span></div><div id="hardware-cpu-gauge" class="single-gauge"></div><p class="model" id="hardware-cpu-model">—</p><div id="cores" class="cores"></div><p class="footnote" id="hardware-cpu-meta">—</p></article>
+          <article class="panel"><div class="panel-heading"><h2>Memória</h2><span>RAM / SWAP</span></div><div id="memory-bars"></div><p class="footnote">RAM em uso = total − disponível. Cache recuperável fica na memória disponível.</p></article>
+          <article class="panel"><div class="panel-heading"><h2>Placa de vídeo</h2><span>NVIDIA</span></div><div id="hardware-gpu-gauges" class="gauges"></div><p id="hardware-gpu-model" class="model">—</p><div id="hardware-gpu-details" class="panel-meta">—</div></article>
+          <article class="panel"><div class="panel-heading"><h2>Armazenamento</h2><span>VOLUMES</span></div><div id="disk-bars"></div><p class="footnote">Volumes locais montados. Snap, volumes remotos e dispositivos repetidos omitidos.</p></article>
+          <article class="panel process-panel"><div class="panel-heading"><h2>Maiores consumidores de RAM</h2><span>TOP 10 / RSS</span></div><div class="table-scroll"><table><thead><tr><th>Processo</th><th>PID</th><th>Memória</th><th>RAM</th></tr></thead><tbody id="process-table"></tbody></table></div><p class="footnote" id="process-note">Somente nome, PID e memória residente. RSS pode incluir páginas compartilhadas.</p></article>
+          <article class="panel temperatures"><div class="panel-heading"><h2>Temperaturas</h2><span>°C</span></div><div id="temperature-list"></div><p class="footnote">Somente sensores disponibilizados pelo sistema. Aviso geral a partir de 85°C.</p></article>
+          <article class="panel hardware-diagnostics"><div class="panel-heading"><h2>Observações da coleta</h2><span>DIAGNÓSTICO LIMITADO</span></div><div id="hardware-diagnostic-summary"></div><p id="hardware-diagnostic-rules" class="footnote"></p></article>
+        </div>
+      </section>
+    </main>
+    <footer><span><i class="tiny-dot"></i> <span id="footer-system">POP!_OS</span> <span class="footer-separator">/</span> TELEMETRIA LOCAL</span><span id="last-sample">Aguardando primeira amostra</span></footer>
+  </div>
+</body>
+</html>

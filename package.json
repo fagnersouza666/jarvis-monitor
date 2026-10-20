@@ -1,0 +1,17 @@
+{
+  "name": "jarvis-monitor-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monitor local somente leitura para Pop!_OS",
+  "scripts": {
+    "build:ui": "tsc && node build-ui.mjs",
+    "build": "npm run build:ui && tauri build --bundles deb && bash scripts/package-deb.sh",
+    "tauri": "tauri",
+    "test:rust": "cargo test --locked --manifest-path telemetry/Cargo.toml",
+    "check:ui": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2",
+    "typescript": "^5.9"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "JARVIS Monitor",
+  "version": "1.0.0",
+  "identifier": "local.jarvis.monitor",
+  "build": {
+    "frontendDist": "../web-dist"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "label": "main",
+        "create": false,
+        "title": "J.A.R.V.I.S. — Monitor local",
+        "width": 1440,
+        "height": 940,
+        "minWidth": 390,
+        "minHeight": 600,
+        "backgroundColor": "#050e19"
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src ipc: http://ipc.localhost; base-uri 'none'; form-action 'none'; frame-ancestors 'none'",
+      "capabilities": [
+        {
+          "identifier": "main-readonly",
+          "description": "Janela local; nenhum plugin de sistema, shell, rede, arquivos ou autostart.",
+          "windows": [
+            "main"
+          ],
+          "permissions": []
+        }
+      ]
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": [
+      "deb"
+    ],
+    "category": "Utility",
+    "shortDescription": "Monitor de hardware somente leitura",
+    "longDescription": "CPU, RAM, swap, NVIDIA, discos, temperaturas e serviços locais em dois painéis. Coletor Rust e interface integrados; sem servidor, Python ou navegador externo.",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png"
+    ],
+    "linux": {
+      "deb": {
+        "depends": [
+          "libwebkit2gtk-4.1-0",
+          "libgtk-3-0t64"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "ES2022",
+    "lib": [
+      "ES2022",
+      "DOM"
+    ],
+    "outDir": "web-dist",
+    "rootDir": "ui",
+    "strict": false,
+    "skipLibCheck": true,
+    "noEmitOnError": true
+  },
+  "include": [
+    "ui/**/*.ts"
+  ]
+}

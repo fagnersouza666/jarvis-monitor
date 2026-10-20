@@ -1,0 +1,9 @@
+[package]
+name = "jarvis-telemetry"
+version = "1.0.0"
+edition = "2021"
+description = "Read-only Linux telemetry for Jarvis Monitor"
+
+[dependencies]
+serde_json = "1"
+libc = "0.2"

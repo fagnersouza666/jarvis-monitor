@@ -1,0 +1,53 @@
+# Build outputs and package artifacts
+/target/
+/src-tauri/target/
+/telemetry/target/
+/web-dist/
+/release/
+/dist/
+/src-tauri/gen/
+*.deb
+*.rpm
+*.AppImage
+*.exe
+*.dmg
+
+# Dependency caches and local build support
+node_modules/
+build-support/
+.cargo/
+.npm/
+.venv/
+__pycache__/
+*.pyc
+
+# Host telemetry, captures, local QA and private references
+evidence/
+references/
+screenshots/
+captures/
+*.log
+*.xwd
+*-snapshot.json
+*-check.json
+*.dump
+*.core
+
+# Credentials and machine-specific settings
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+credentials*
+secrets*
+.aws/
+.codex/
+.agents/
+.idea/
+.vscode/
+.DS_Store
+*~
+
+# Keep dependency lockfiles tracked.
