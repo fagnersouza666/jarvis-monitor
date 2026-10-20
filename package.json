@@ -2,7 +2,7 @@
   "name": "jarvis-monitor-desktop",
   "version": "1.0.0",
   "private": true,
-  "description": "Monitor local somente leitura para Pop!_OS",
+  "description": "Monitor local somente leitura para Ubuntu",
   "scripts": {
     "build:ui": "tsc && node build-ui.mjs",
     "build": "npm run build:ui && tauri build --bundles deb && bash scripts/package-deb.sh",

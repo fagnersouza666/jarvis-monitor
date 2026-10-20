@@ -4,15 +4,17 @@
 
 # JARVIS Monitor
 
-Monitor desktop de hardware para Linux, com visual azul-marinho e ciano, dois
+Monitor desktop de hardware para Ubuntu, com visual azul-marinho e ciano, dois
 painéis e métricas reais da máquina. O coletor em **Rust** e a interface
 **HTML/CSS/TypeScript** são integrados com **Tauri 2** em uma única aplicação.
 
 Abre em janela própria pelo menu de aplicativos. Não precisa iniciar Python,
 servidor HTTP ou navegador. O aplicativo é **somente leitura** e não abre porta TCP.
 
-**Plataforma validada:** Pop!_OS 24.04 LTS, arquitetura amd64. Outras distribuições,
-Windows e macOS não foram validados. Este repositório publica o código-fonte;
+**Plataforma principal:** Ubuntu 24.04 LTS, arquitetura amd64.
+**Validação realizada:** Pop!_OS 24.04 LTS, uma distribuição baseada no Ubuntu.
+A execução diretamente no Ubuntu ainda não foi validada. Outras distribuições,
+Windows e macOS também não foram validados. Este repositório publica o código-fonte;
 não há release ou download de binário publicado nesta etapa.
 
 ## Dois painéis
@@ -195,15 +197,17 @@ comando IPC para executar shell, escrever arquivos ou controlar processos.
 
 ## Requisitos
 
-**Para executar o pacote:** Linux amd64 compatível com o build, GTK3 e
-WebKitGTK 4.1. `nvidia-smi` e systemd são opcionais para suas respectivas
+**Para executar o pacote:** Ubuntu 24.04 LTS amd64 é a plataforma principal,
+com GTK3 e WebKitGTK 4.1. A validação disponível foi feita no Pop!_OS, conforme
+descrito acima. `nvidia-smi` e systemd são opcionais para suas respectivas
 leituras; não são instalados nem configurados automaticamente. O pacote não é
 um executável estaticamente autossuficiente. Rust, Node e Python não são
 necessários para abrir o aplicativo instalado.
 
-**Para compilar no Pop!_OS 24.04:** Rust/Cargo, Node/npm e as bibliotecas de
-desenvolvimento do Tauri. A versão inicial foi compilada com Rust 1.99.1 e Node
-26; não foi estabelecida uma versão mínima de toolchain compatível.
+**Para compilar para Ubuntu 24.04:** Rust/Cargo, Node/npm e as bibliotecas de
+desenvolvimento do Tauri. O build inicial foi realizado no Pop!_OS 24.04,
+com Rust 1.99.1 e Node 26; não foi estabelecida uma versão mínima de toolchain
+compatível.
 
 Após revisar as alterações propostas pelo apt, as dependências de build podem
 ser instaladas pelos repositórios oficiais:

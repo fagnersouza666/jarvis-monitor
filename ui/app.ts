@@ -57,7 +57,7 @@ function showPage(page) {
   $('hardware').hidden = !hardware;
   setText('page-number', hardware ? '02' : '01');
   setText('page-title', hardware ? 'Hardware' : 'Visão geral');
-  setText('page-subtitle', hardware ? 'Recursos, sensores e processos desta máquina.' : 'Uma visão em tempo real do seu Pop!_OS.');
+  setText('page-subtitle', hardware ? 'Recursos, sensores e processos desta máquina.' : 'Uma visão em tempo real do seu sistema.');
   document.querySelectorAll<HTMLAnchorElement>('[data-page]').forEach(a => {
     const active = a.dataset.page === page;
     a.classList.toggle('active', active);
